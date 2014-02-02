@@ -1,0 +1,17 @@
+program zipWith;
+
+function c_fun(a : int; b : char) : int
+    return (a + ord(b));
+
+procedure main()
+var
+    a : array of int;
+    b : array of char;
+    c : array of int;
+begin
+    write("Expecting shape error\n\n");
+    a := {1,2,3};
+    b := {'a','b','c','d'};
+    c := zipWith(c_fun,a,b);
+end;
+

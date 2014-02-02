@@ -1,0 +1,15 @@
+program zipWith;
+
+function c_fun(a : int; b : char) : int
+    return (a + ord(b));
+
+procedure main()
+var
+    a : array of int;
+    c : array of int;
+begin
+    write("Expecting c_fun type error\n\n");
+    a := {1,2,3};
+    c := zipWith(c_fun,a,a);
+end;
+

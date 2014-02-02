@@ -1,0 +1,24 @@
+testing zipWith(a_fun,a,a),
+ Expected: 2 4 6
+ Output:   2 4 6
+
+
+testing zipWith(b_fun,b,b),
+ Expected: a b c
+ Output:   a b c
+
+
+testing zipWith(c_fun,a,b),
+ Expected: 98 100 102
+ Output:   98 100 102
+
+
+testing zipWith(d_fun,d,e),
+ Expected: -1 -1 97 98
+ Output:   -1 -1 97 98
+
+
+testing zipWith(e_fun,g,h),
+ Expected: 1 0 1 0 1 0 1 0
+ Output:   1 0 1 0 1 0 1 0
+

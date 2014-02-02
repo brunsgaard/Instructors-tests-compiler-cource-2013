@@ -44,28 +44,27 @@ begin
     g := { {{1,2},{3,4}} , {{5,6},{6,8}} };
     h := { {{'a','f'},{'c','h'}} , {{'b','e'},{'d','g'}} };
 
-    c := zipWith(a_fun,a,a);
-
     write("testing zipWith(a_fun,a,a),\n Expected: 2 4 6\n Output:   ");
+    c := zipWith(a_fun,a,a);
     write(c[0]); write(" "); write(c[1]); write(" "); write(c[2]); write("\n\n\n");
 
-    b := zipWith(b_fun,b,b);
 
     write("testing zipWith(b_fun,b,b),\n Expected: a b c\n Output:   ");
+    b := zipWith(b_fun,b,b);
     write(b[0]); write(" "); write(b[1]); write(" "); write(b[2]); write("\n\n\n");
 
-    c := zipWith(c_fun,a,b);
     write("testing zipWith(c_fun,a,b),\n Expected: 98 100 102\n Output:   ");
+    c := zipWith(c_fun,a,b);
     write(c[0]); write(" "); write(c[1]); write(" "); write(c[2]); write("\n\n\n");
 
 
-    f := zipWith(d_fun,d,e);
     write("testing zipWith(d_fun,d,e),\n Expected: -1 -1 97 98\n Output:   ");
+    f := zipWith(d_fun,d,e);
     write(f[0,0]); write(" "); write(f[0,1]); write(" ");
     write(f[1,0]); write(" "); write(f[1,1]); write("\n\n\n");
 
-    i := zipWith(e_fun,g,h);
     write("testing zipWith(e_fun,g,h),\n Expected: 1 0 1 0 1 0 1 0\n Output:   ");
+    i := zipWith(e_fun,g,h);
     write(i[0,0,0]); write(" ");
     write(i[0,0,1]); write(" ");
     write(i[0,1,0]); write(" ");

@@ -1,0 +1,2 @@
+Type Checking error: In typeCheck procedure call stmt c_fun, actual and formal argument types do not match, at
+Line 13, column 10.

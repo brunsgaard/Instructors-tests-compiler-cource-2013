@@ -9,7 +9,7 @@ var
     b : array of char;
     c : array of bool;
 begin
-    write("Expecting shape error\n\n");
+    write("Expecting type error\n\n");
     a := {1,2,3};
     b := {'a','b','c'};
     c := zipWith(c_fun,a,b);

@@ -1,0 +1,45 @@
+program guardtest;
+// Test of the Dijksta's guards
+
+procedure main()
+var
+    i     : int;
+    count0 : int;
+    count1 : int;
+    count2 : int;
+    count3 : int;
+    fail   : bool;
+begin
+    count0 := 0;
+    count1 := 0;
+    count2 := 0;
+    count3 := 0;
+    fail   := false;
+    i := 0;
+    do i < 3 : begin
+                 i := i + 1;
+                 count0 := count0 + 1;
+               end;
+    [] i = 2 : begin
+                 i := i + 1;
+                 count1 := count1 + 1;
+               end;
+    [] ((2 < i) and (i < 5)) : begin
+                 i := i + 1;
+                 count2 := count2 + 1;
+               end;
+    [] i < 8 : begin
+                 i := i + 1;
+                 count3 := count3 + 1;
+               end;
+    [] 10 < i : begin
+                 // Should never be reached
+                 fail := true;
+               end;
+    done;
+    
+    if ((not fail) and (count0=2) and (count1=1)
+        and (count2=1) and (count3=2))
+        then write ("Guard test FAILED!!!")
+    else write("Guard test passed.");
+end;

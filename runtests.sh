@@ -10,7 +10,7 @@
 #
 # Written by Troels Henriksen  <athas@sigkill.dk>.
 
-set -e # Die on first error.
+#set -e # Die on first error.
 
 # RESDIR is the path at which test programs can be found.
 RESDIR=TESTS

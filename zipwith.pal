@@ -3,10 +3,6 @@ program zipWith;
 function a_fun(a : int; b : int) : int
     return a + b;
 
-// If a=b, then it will return a, else undefined
-function b_fun(a : char; b : char) : char
-    return chr(ord(a)+ord(b)-ord(a));
-
 function c_fun(a : int; b : char) : int
     return (a + ord(b));
 
@@ -14,11 +10,6 @@ function d_fun(a : char; b : bool) : int
     if b
     then return ord(a)
     else return 0-1;
-
-function e_fun(a : int; b : char) : bool
-    if 0 < (ord(b)-100)
-    then return false
-    else return true;
 
 procedure main()
 var
@@ -30,10 +21,6 @@ var
     e : array of array of bool;
     f : array of array of int;
 
-    g : array of array of array of int;
-    h : array of array of array of char;
-    i : array of array of array of bool;
-
 begin
     a := {1,2,3};
     b := {'a','b','c'};
@@ -41,38 +28,18 @@ begin
     d := {{'a','b'},{'a','b'}};
     e := {{false,false},{true,true}};
 
-    g := { {{1,2},{3,4}} , {{5,6},{6,8}} };
-    h := { {{'a','f'},{'c','h'}} , {{'b','e'},{'d','g'}} };
-
     write("testing zipWith(a_fun,a,a),\n Expected: 2 4 6\n Output:   ");
     c := zipWith(a_fun,a,a);
-    write(c[0]); write(" "); write(c[1]); write(" "); write(c[2]); write("\n\n\n");
-
-
-    write("testing zipWith(b_fun,b,b),\n Expected: a b c\n Output:   ");
-    b := zipWith(b_fun,b,b);
-    write(b[0]); write(" "); write(b[1]); write(" "); write(b[2]); write("\n\n\n");
+    write(c[0]); write(" "); write(c[1]); write(" "); write(c[2]); write("\n\n");
 
     write("testing zipWith(c_fun,a,b),\n Expected: 98 100 102\n Output:   ");
     c := zipWith(c_fun,a,b);
-    write(c[0]); write(" "); write(c[1]); write(" "); write(c[2]); write("\n\n\n");
+    write(c[0]); write(" "); write(c[1]); write(" "); write(c[2]); write("\n\n");
 
 
     write("testing zipWith(d_fun,d,e),\n Expected: -1 -1 97 98\n Output:   ");
     f := zipWith(d_fun,d,e);
     write(f[0,0]); write(" "); write(f[0,1]); write(" ");
-    write(f[1,0]); write(" "); write(f[1,1]); write("\n\n\n");
-
-    write("testing zipWith(e_fun,g,h),\n Expected: 1 0 1 0 1 0 1 0\n Output:   ");
-    i := zipWith(e_fun,g,h);
-    write(i[0,0,0]); write(" ");
-    write(i[0,0,1]); write(" ");
-    write(i[0,1,0]); write(" ");
-    write(i[0,1,1]); write(" ");
-    write(i[1,0,0]); write(" ");
-    write(i[1,0,1]); write(" ");
-    write(i[1,1,0]); write(" ");
-    write(i[1,1,1]); write(" ");
-
+    write(f[1,0]); write(" "); write(f[1,1]);
 end;
 

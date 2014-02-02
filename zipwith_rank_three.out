@@ -1,0 +1,3 @@
+testing zipWith(e_fun,g,h),
+ Expected: 1 0 1 0 1 0 1 0
+ Output:   1 0 1 0 1 0 1 0 

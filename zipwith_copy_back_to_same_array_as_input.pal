@@ -1,0 +1,14 @@
+program zipWith;
+
+function b_fun(a : char; b : char) : char
+    return chr(ord(a)+ord(b)-ord(a));
+
+procedure main()
+var
+    b : array of char;
+begin
+    b := {'a','b','c'};
+    write("testing zipWith(b_fun,b,b),\n Expected: a b c\n Output:   ");
+    b := zipWith(b_fun,b,b);
+    write(b[0]); write(" "); write(b[1]); write(" "); write(b[2]);
+end;

@@ -1,0 +1,18 @@
+program guarded_do;
+procedure main()
+var i : int;
+begin
+  i := read();
+  do i < 10 : begin
+                i := i + 1;
+                write('.');
+              end;
+  [] 10 < i : begin
+                write("Too big, again\n");
+                i := read();
+              end;
+  [] 20 < i : write("never reached!");
+  done;
+  write("Now i should be 10.\n");
+  write(i);write('\n');
+end;

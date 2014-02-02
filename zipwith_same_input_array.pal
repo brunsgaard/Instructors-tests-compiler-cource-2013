@@ -1,0 +1,20 @@
+program zipWith;
+
+function a_fun(a : int; b : int) : int
+    return a + b;
+
+procedure main()
+var
+    a : array of int;
+    b : array of char;
+    c : array of int;
+
+begin
+    a := {1,2,3};
+    b := {'a','b','c'};
+
+    write("testing zipWith(a_fun,a,a),\n Expected: 2 4 6\n Output:   ");
+    c := zipWith(a_fun,a,a);
+    write(c[0]); write(" "); write(c[1]); write(" "); write(c[2]);
+end;
+

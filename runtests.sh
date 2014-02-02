@@ -27,7 +27,7 @@ RUNMARS="java -jar $MARS nc"
 
 # sh compile.sh
 
-for FO in $RESDIR/.pal; do
+for FO in $RESDIR/*pal; do
     FO=$(basename $FO)
     PROG=$(echo $FO)
     INPUT=$(echo $FO|sed 's/pal$/in/')

@@ -24,67 +24,67 @@ main:
 	sw	$18, 8($29)
 	sw	$17, 4($29)
 	sw	$16, 0($29)
-	la	$18, Expecti_5_
+	la	$17, Expecti_5_
 # was:	la	_dat__4_, Expecti_5_
 # Expecti_5_: string "Expecting shape error\n\n"
-	lw	$17, 0($18)
+	lw	$16, 0($17)
 # was:	lw	_arr_end__6_, 0(_dat__4_)
-	lw	$18, 4($18)
+	lw	$17, 4($17)
 # was:	lw	_dat__4_, 4(_dat__4_)
-	add	$17, $17, $18
+	add	$16, $16, $17
 # was:	add	_arr_end__6_, _arr_end__6_, _dat__4_
 _write_loop_beg_7_:
-	beq	$18, $17, _write_loop_end_8_
+	beq	$17, $16, _write_loop_end_8_
 # was:	beq	_dat__4_, _arr_end__6_, _write_loop_end_8_
-	lb	$2, 0($18)
+	lb	$2, 0($17)
 # was:	lb	2, 0(_dat__4_)
 	jal	writeChar
 # was:	jal	writeChar, 2
-	addi	$18, $18, 1
+	addi	$17, $17, 1
 # was:	addi	_dat__4_, _dat__4_, 1
 	j	_write_loop_beg_7_
 _write_loop_end_8_:
-	ori	$2, $28, 0
+	ori	$4, $28, 0
 # was:	ori	_assign__9_, 28, 0
 	addi	$28, $28, 20
 # was:	addi	28, 28, 20
-	ori	$4, $2, 0
+	ori	$3, $4, 0
 # was:	ori	_tmp__10_, _assign__9_, 0
-	ori	$3, $0, 3
+	ori	$2, $0, 3
 # was:	ori	_tmp__11_, 0, 3
-	sw	$3, 0($4)
+	sw	$2, 0($3)
 # was:	sw	_tmp__11_, 0(_tmp__10_)
-	addi	$4, $4, 4
+	addi	$3, $3, 4
 # was:	addi	_tmp__10_, _tmp__10_, 4
-	addi	$4, $4, 4
+	addi	$3, $3, 4
 # was:	addi	_tmp__10_, _tmp__10_, 4
-	sw	$4, -4($4)
+	sw	$3, -4($3)
 # was:	sw	_tmp__10_, -4(_tmp__10_)
-	ori	$3, $0, 1
+	ori	$2, $0, 1
 # was:	ori	_tmp__11_, 0, 1
-	sw	$3, 0($4)
+	sw	$2, 0($3)
 # was:	sw	_tmp__11_, 0(_tmp__10_)
-	addi	$4, $4, 4
+	addi	$3, $3, 4
 # was:	addi	_tmp__10_, _tmp__10_, 4
-	ori	$3, $0, 2
+	ori	$2, $0, 2
 # was:	ori	_tmp__11_, 0, 2
-	sw	$3, 0($4)
+	sw	$2, 0($3)
 # was:	sw	_tmp__11_, 0(_tmp__10_)
-	addi	$4, $4, 4
+	addi	$3, $3, 4
 # was:	addi	_tmp__10_, _tmp__10_, 4
-	ori	$3, $0, 3
+	ori	$2, $0, 3
 # was:	ori	_tmp__11_, 0, 3
-	sw	$3, 0($4)
+	sw	$2, 0($3)
 # was:	sw	_tmp__11_, 0(_tmp__10_)
-	addi	$4, $4, 4
+	addi	$3, $3, 4
 # was:	addi	_tmp__10_, _tmp__10_, 4
-	ori	$17, $2, 0
+	ori	$2, $4, 0
 # was:	ori	a_local__3_, _assign__9_, 0
-	ori	$2, $28, 0
+	ori	$5, $28, 0
 # was:	ori	_assign__12_, 28, 0
 	addi	$28, $28, 12
 # was:	addi	28, 28, 12
-	ori	$4, $2, 0
+	ori	$4, $5, 0
 # was:	ori	_tmp__13_, _assign__12_, 0
 	ori	$3, $0, 4
 # was:	ori	_tmp__14_, 0, 4
@@ -121,63 +121,68 @@ _write_loop_end_8_:
 	addi	$4, $4, 1
 # was:	addi	_tmp__13_, _tmp__13_, 1
 # 	ori	b_local__2_,_assign__12_,0
-# 	ori	armem_16_,a_local__3_,0
-	ori	$18, $2, 0
-# was:	ori	armem_17_, b_local__2_, 0
-	add	$20, $16, $28
-# was:	add	_assign__15_, $zero, 28
-	addi	$19, $16, 1
-# was:	addi	element_20_, $zero, 1
-	lw	$3, 0($17)
-# was:	lw	dimar1_18_, 0(armem_16_)
-	lw	$2, 0($18)
-# was:	lw	dimar2_19_, 0(armem_17_)
-	bne	$3, $2, _ShapeNotEqualError_
-# was:	bne	dimar1_18_, dimar2_19_, _ShapeNotEqualError_
-	addi	$17, $17, 4
-# was:	addi	armem_16_, armem_16_, 4
-	addi	$18, $18, 4
-# was:	addi	armem_17_, armem_17_, 4
-	sw	$3, 0($28)
-# was:	sw	dimar1_18_, 0(28)
-	addi	$28, $28, 4
-# was:	addi	28, 28, 4
-	mul	$19, $19, $3
-# was:	mul	element_20_, element_20_, dimar1_18_
-	lw	$17, 0($17)
-# was:	lw	armem_16_, 0(armem_16_)
-	lw	$18, 0($18)
-# was:	lw	armem_17_, 0(armem_17_)
-	addi	$2, $28, 4
-# was:	addi	temp_21_, 28, 4
-	sw	$2, 0($28)
-# was:	sw	temp_21_, 0(28)
-	addi	$28, $28, 4
-# was:	addi	28, 28, 4
-labelzip_25_:
-	lw	$2, 0($17)
-# was:	lw	arg1_22_, 0(armem_16_)
-	lb	$3, 0($18)
-# was:	lb	arg2_23_, 0(armem_17_)
-# 	ori	_funarg__28_,arg1_22_,0
-# 	ori	_funarg__29_,arg2_23_,0
-# 	ori	3,_funarg__29_,0
-# 	ori	2,_funarg__28_,0
+# 	ori	areg1__16_,a_local__3_,0
+	ori	$3, $5, 0
+# was:	ori	areg2__17_, b_local__2_, 0
+	ori	$17, $28, 0
+# was:	ori	_assign__15_, 28, 0
+	addi	$28, $28, 8
+# was:	addi	28, 28, 8
+	ori	$16, $0, 1
+# was:	ori	tmp__21_, 0, 1
+	lw	$19, 0($2)
+# was:	lw	it1__18_, 0(areg1__16_)
+	lw	$18, 0($3)
+# was:	lw	it2__19_, 0(areg2__17_)
+	ori	$5, $0, 15
+# was:	ori	5, 0, 15
+	bne	$19, $18, _ShapeMismatchError
+# was:	bne	it1__18_, it2__19_, _ShapeMismatchError
+	mul	$16, $16, $19
+# was:	mul	tmp__21_, tmp__21_, it1__18_
+	sw	$19, 0($17)
+# was:	sw	it1__18_, 0(_assign__15_)
+	ori	$20, $28, 0
+# was:	ori	it3__20_, 28, 0
+	sw	$20, 4($17)
+# was:	sw	it3__20_, 4(_assign__15_)
+	add	$28, $28, $16
+# was:	add	28, 28, tmp__21_
+	addi	$28, $28, 3
+# was:	addi	28, 28, 3
+	sll	$28, $28, 2
+# was:	sll	28, 28, 2
+	sra	$28, $28, 2
+# was:	sra	28, 28, 2
+	add	$16, $16, $20
+# was:	add	tmp__21_, tmp__21_, it3__20_
+	lw	$19, 4($2)
+# was:	lw	it1__18_, 4(areg1__16_)
+	lw	$18, 4($3)
+# was:	lw	it2__19_, 4(areg2__17_)
+body__25_:
+	lw	$2, 0($19)
+# was:	lw	v1__22_, 0(it1__18_)
+	lw	$3, 0($18)
+# was:	lw	v2__23_, 0(it2__19_)
+# 	ori	_funarg__29_,v1__22_,0
+# 	ori	_funarg__30_,v2__23_,0
+# 	ori	3,_funarg__30_,0
+# 	ori	2,_funarg__29_,0
 	jal	c_fun
 # was:	jal	c_fun, 23
-# 	ori	res_24_,2,0
-	sw	$2, 0($28)
-# was:	sw	res_24_, 0(28)
-	addi	$28, $28, 4
-# was:	addi	28, 28, 4
-	addi	$17, $17, 4
-# was:	addi	armem_16_, armem_16_, 4
-	addi	$18, $18, 1
-# was:	addi	armem_17_, armem_17_, 1
-	addi	$19, $19, -1
-# was:	addi	element_20_, element_20_, -1
-	bne	$19, $16, labelzip_25_
-# was:	bne	element_20_, $zero, labelzip_25_
+# 	ori	res__24_,2,0
+	sb	$2, 0($20)
+# was:	sb	res__24_, 0(it3__20_)
+	addi	$19, $19, 4
+# was:	addi	it1__18_, it1__18_, 4
+	addi	$18, $18, 4
+# was:	addi	it2__19_, it2__19_, 4
+	addi	$20, $20, 1
+# was:	addi	it3__20_, it3__20_, 1
+cond__26_:
+	bne	$20, $16, body__25_
+# was:	bne	it3__20_, tmp__21_, body__25_
 # 	ori	c_local__1_,_assign__15_,0
 main_exit:
 	lw	$20, 16($29)
@@ -193,19 +198,19 @@ c_fun:
 	sw	$31, -4($29)
 	addi	$29, $29, -8
 	sw	$16, 0($29)
-# 	ori	a_arg__30_,2,0
-# 	ori	b_arg__31_,3,0
+# 	ori	a_arg__31_,2,0
+# 	ori	b_arg__32_,3,0
 	ori	$16, $2, 0
-# was:	ori	plus1__33_, a_arg__30_, 0
+# was:	ori	plus1__34_, a_arg__31_, 0
 	ori	$2, $3, 0
-# was:	ori	_funarg__35_, b_arg__31_, 0
-# 	ori	2,_funarg__35_,0
+# was:	ori	_funarg__36_, b_arg__32_, 0
+# 	ori	2,_funarg__36_,0
 	jal	ord
 # was:	jal	ord, 2
-# 	ori	plus2__34_,2,0
+# 	ori	plus2__35_,2,0
 	add	$2, $16, $2
-# was:	add	_return__32_, plus1__33_, plus2__34_
-# 	ori	2,_return__32_,0
+# was:	add	_return__33_, plus1__34_, plus2__35_
+# 	ori	2,_return__33_,0
 	j	c_fun_exit
 c_fun_exit:
 	lw	$16, 0($29)
@@ -284,8 +289,8 @@ _IllegalArrIndexError_:
 	ori	$2, $0, 4
 	syscall
 	j	_stop_
-_NegativeExponentError_:
-	la	$4, _NegativeExponent_
+_IllegalExponentError_:
+	la	$4, _IllegalExponentString_
 	ori	$2, $0, 4
 	syscall
 	ori	$4, $5, 0
@@ -295,8 +300,14 @@ _NegativeExponentError_:
 	ori	$2, $0, 4
 	syscall
 	j	_stop_
-_ShapeNotEqualError_:
-	la	$4, _ShapeNotEqual_
+_ShapeMismatchError:
+	la	$4, _IllegalExponentString_
+	ori	$2, $0, 4
+	syscall
+	ori	$4, $5, 0
+	ori	$2, $0, 1
+	syscall
+	la	$4, _cr_
 	ori	$2, $0, 4
 	syscall
 	j	_stop_
@@ -305,16 +316,14 @@ _ShapeNotEqualError_:
 _cr_:
 	.asciiz	"\n"
 	.align	2
-_NegativeExponent_:
-	.asciiz	"Error: Exponent is negative with value "
-_ShapeNotEqual_:
-	.asciiz	"Error: Shapes are not equal "
-	.align	2
 _IllegalArrSizeString_:
 	.asciiz	"Error: Array size less or equal to 0 at line "
 	.align	2
 _IllegalArrIndexString_:
 	.asciiz	"Error: Array index out of bounds at line "
+	.align	2
+_IllegalExponentString_:
+	.asciiz	"Error: Exponent negative at line "
 # String Literals
 	.align	2
 Expecti_5_:

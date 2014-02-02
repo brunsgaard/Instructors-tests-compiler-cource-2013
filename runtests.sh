@@ -67,7 +67,9 @@ for FO in $RESDIR/*.pal; do
                 rm -f $TESTOUT
             fi
         else
+            cat $TESTOUT
             rm -f $TESTOUT
         fi
     fi
+    printf "\n"
 done
